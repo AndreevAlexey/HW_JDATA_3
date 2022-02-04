@@ -21,10 +21,10 @@ public class CustomerController {
     @GetMapping("/products/fetch-product")
     public List<String> getProductName(@RequestParam("name") String name) {
         return customersService.getProductName(name);
-    };
+    }
 
     @ExceptionHandler
-    ResponseEntity<String> handlerUnauthorizedUser(RuntimeException exp) {
+    ResponseEntity<String> handlerRuntimeException(RuntimeException exp) {
         exp.printStackTrace();
         return new ResponseEntity<>("Ошибка обработки запроса", HttpStatus.SERVICE_UNAVAILABLE);
     }
